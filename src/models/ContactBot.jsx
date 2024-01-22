@@ -15,13 +15,25 @@ export function ContactBot({ currentAnimation, ...props }) {
   const { nodes, materials, animations } = useGLTF(scene);
   const { actions } = useAnimations(animations, group);
 
-  useEffect(() => {
-    
-    Object.values(actions).forEach((action) => action.stop());
+  // useEffect(() => {
+  //   Object.values(actions).forEach((action) => action.stop());
 
-    if (actions[currentAnimation]) {
-      actions[currentAnimation].play()
-    }
+  //   if (actions[currentAnimation]) {
+  //     if (currentAnimation === "Computation") {
+  //       actions[currentAnimation].startAt(-100);
+  //     }
+
+  //     actions[currentAnimation].play();
+  //     console.log(currentAnimation)
+  //   }
+  // }, [actions, currentAnimation]);
+
+  // Change animation when the index changes
+  useEffect(() => {
+    // Reset and fade in animation after an index has been changed
+    actions[currentAnimation].reset().fadeIn(0.5).play();
+    // In the clean-up phase, fade it out
+    return () => actions[currentAnimation].fadeOut(0.5);
   }, [actions, currentAnimation]);
 
   return (
@@ -82,5 +94,3 @@ export function ContactBot({ currentAnimation, ...props }) {
     </group>
   );
 }
-
-

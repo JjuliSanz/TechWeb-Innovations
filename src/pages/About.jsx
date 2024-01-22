@@ -8,7 +8,7 @@ import { skills, experiences } from "../constants";
 import { CTA } from "../components";
 import { Canvas } from "@react-three/fiber";
 import { Coins, Earth, EarthHologram, EarthRoom, Ground } from "../models";
-import { OrbitControls } from "@react-three/drei";
+import { CameraControls, OrbitControls } from "@react-three/drei";
 import {
   Bloom,
   DepthOfField,
@@ -65,7 +65,6 @@ const About = () => {
           {/* <ambientLight intensity={0.5} /> */}
           {/* <directionalLight position={[-1, 5, 5]} intensity={0.3} /> */}
           <pointLight intensity={1} position={[0, 0.4, -3]} />
-          <OrbitControls />
           <Coins position={[0, -2.5, 0]} scale={2} />
           {/* <Ground position={[0, -3, -1]} scale={10} /> */}
         </Canvas>
