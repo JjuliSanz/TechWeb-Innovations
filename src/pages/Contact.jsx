@@ -5,6 +5,7 @@ import useAlert from "../hooks/useAlert";
 import { ContactBot } from "../models";
 import { Alert, Loader } from "../components";
 import { OrbitControls } from "@react-three/drei";
+import { Bloom, EffectComposer } from "@react-three/postprocessing";
 
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -65,7 +66,7 @@ const Contact = () => {
   const handleBlur = () => setCurrentAnimation("Base");
 
   return (
-    <section className="relative flex lg:flex-row flex-col max-w-5xl mx-auto sm:p-16 pb-12 !pt-[126px] px-8 h-[100vh]">
+    <section className="relative flex lg:flex-row flex-col max-w-5xl mx-auto sm:p-16 pb-12 !pt-[126px] px-8 min-h-[calc(100vh-80px)] text-[#e205ff]">
       {alert.show && <Alert {...alert} />}
 
       <div className="flex-1 min-w-[50%] flex flex-col">
@@ -75,15 +76,15 @@ const Contact = () => {
 
         <form
           ref={formRef}
-          className="w-full flex flex-col gap-7 mt-14"
+          className="w-full flex flex-col gap-7 mt-14 "
           onSubmit={handleSubmit}
         >
-          <label htmlFor="" className="text-black-500 font-semibold">
+          <label htmlFor="" className="font-semibold text-[#e205ff]">
             Name
             <input
               type="text"
               name="name"
-              className="bg-white border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mt-2.5 font-normal shadow-card"
+              className="bg-[#14092e] border border-[#e205ff] text-slate-300 text-sm rounded-lg focus:ring-[#e205ff] focus:border-[#e205ff] block w-full p-2.5 mt-2.5 font-normal shadow-card"
               placeholder="Julian"
               required
               value={form.name}
@@ -92,12 +93,12 @@ const Contact = () => {
               onBlur={handleBlur}
             />
           </label>
-          <label htmlFor="" className="text-black-500 font-semibold">
+          <label htmlFor="" className="text-[#e205ff] font-semibold">
             Email
             <input
               type="email"
               name="email"
-              className="bg-white border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mt-2.5 font-normal shadow-card"
+              className="bg-[#14092e] border border-[#e205ff] text-slate-300 text-sm rounded-lg focus:ring-[#e205ff] focus:border-[#e205ff] block w-full p-2.5 mt-2.5 font-normal shadow-card"
               placeholder="julian@gmail.com"
               required
               value={form.email}
@@ -106,12 +107,12 @@ const Contact = () => {
               onBlur={handleBlur}
             />
           </label>
-          <label htmlFor="" className="text-black-500 font-semibold">
+          <label htmlFor="" className="text-[#e205ff] font-semibold">
             Your Message
             <textarea
               name="email"
               rows={4}
-              className="block p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-200 focus:ring-blue-500 focus:border-blue-500 mt-2.5 font-normal shadow-card"
+              className="block p-2.5 w-full text-sm text-slate-300 bg-[#14092e] rounded-lg border border-[#e205ff] focus:ring-[#e205ff] focus:border-[#e205ff] mt-2.5 font-normal shadow-card"
               placeholder="Let me know how I can help you!"
               required
               value={form.message}
@@ -121,7 +122,7 @@ const Contact = () => {
             />
           </label>
           <button
-            className="text-white bg-gradient-to-r from-[#00c6ff] to-[#0072ff] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+            className="text-slate-100 bg-gradient-to-r from-[#e205ff] to-[#3e026b] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
             type="submit"
             onFocus={handleFocus}
             onBlur={handleBlur}
@@ -132,20 +133,35 @@ const Contact = () => {
         </form>
       </div>
       <div className="lg:w-1/2 w-full lg:h-auto md:h-[550px] h-auto">
-        
-        <Canvas camera={{
+        <Canvas
+          camera={{
             position: [0, 0, 5],
             fov: 75,
             near: 0.1,
             far: 1000,
-          }}  className=" ">
+          }}
+          className=" "
+        >
           {/* <directionalLight intensity={2.5} position={[0, 0, 1]} /> 
           <directionalLight intensity={0.3} position={[0, 1, 0]} />*/}
-          <ambientLight intensity={1} />
+          <ambientLight intensity={1} color="#e205ff" />
           <Suspense fallback={<Loader />}>
-            <OrbitControls/>
-            <ContactBot scale={8} position={[0, -3.5, 0]} rotation={[0, 0, 0]} currentAnimation={currentAnimation} />
+            <OrbitControls />
+            <ContactBot
+              scale={8}
+              position={[0, -3.5, 0]}
+              rotation={[0, 0, 0]}
+              currentAnimation={currentAnimation}
+            />
           </Suspense>
+          <EffectComposer>
+            <Bloom
+              intensity={0.3}
+              luminanceThreshold={0.3}
+              luminanceSmoothing={0.09}
+              height={300}
+            />
+          </EffectComposer>
         </Canvas>
       </div>
     </section>

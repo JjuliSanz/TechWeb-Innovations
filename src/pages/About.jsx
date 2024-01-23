@@ -4,7 +4,7 @@ import {
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 
-import { skills, experiences } from "../constants";
+import { skills, experiences, services } from "../constants";
 import { CTA } from "../components";
 import { Canvas } from "@react-three/fiber";
 import { Coins, Earth, EarthHologram, EarthRoom, Ground } from "../models";
@@ -21,28 +21,31 @@ import { KernelSize, Resolution } from "postprocessing";
 const About = () => {
   return (
     <section className="max-w-5xl mx-auto sm:p-16 pb-12 !pt-[126px] px-8 min-h-[calc(100vh-80px)]">
-      <h1 className="sm:text-5xl text-3xl font-semibold sm:leading-snug font-poppins">
-        Hello I'm{" "}
-        <span className="bg-gradient-to-r from-[#00c6ff] to-[#0072ff] bg-clip-text text-transparent font-semibold drop-shadow">
-          Julian
+      <h1 className="sm:text-5xl text-3xl font-semibold sm:leading-snug font-poppins text-[#e205ff]">
+        Hello We're{" "}
+        <span className="bg-gradient-to-r from-[#00c6ff] to-[#0072ff] bg-clip-text text-transparent font-semibold drop-shadow ">
+          TechWeb Innovations
         </span>
       </h1>
 
-      <div className="mt-5 flex flex-col gap-3 text-slate-500">
+      <div className="mt-5 flex flex-col gap-3 text-slate-300">
         <p className="">
-          Software Engineer based in Argentina, specializing in technical
-          education through hands-on learning and building applications.
+          TechWeb Innovations is a cutting-edge web development company
+          dedicated to delivering innovative solutions that empower businesses
+          in the digital realm. Based on a foundation of technical expertise and
+          creative flair, we specialize in crafting and maintaining dynamic
+          websites to enhance online presence and user engagement.
         </p>
       </div>
 
       <div className="py-10 flex flex-col">
-        <h3 className="font-semibold sm:text-3xl text-xl relative font-poppins">
-          My Skills
+        <h3 className="font-semibold sm:text-3xl text-xl relative font-poppins text-[#e205ff]">
+          Our Skills
         </h3>
 
         <div className="mt-16 flex flex-wrap gap-12">
           {skills.map((skill, index) => (
-            <div className="block-container w-20 h-20">
+            <div className="block-container w-20 h-20" key={index}>
               <div className="btn-back rounded-xl" />
               <div className="btn-front rounded-xl flex justify-center items-center">
                 <img
@@ -56,24 +59,24 @@ const About = () => {
         </div>
       </div>
 
-      <div className="relative h-[500px] w-full ">
-        <Canvas
-          camera={{
-            position: [0, 0, 4],
-          }}
-        >
-          {/* <ambientLight intensity={0.5} /> */}
-          {/* <directionalLight position={[-1, 5, 5]} intensity={0.3} /> */}
-          <pointLight intensity={1} position={[0, 0.4, -3]} />
-          <Coins position={[0, -2.5, 0]} scale={2} />
-          {/* <Ground position={[0, -3, -1]} scale={10} /> */}
-        </Canvas>
-      </div>
       <div className="py-16">
-        <h3 className="font-semibold sm:text-3xl text-xl relative font-poppins">
-          Work Experience
+        <h3 className="font-semibold sm:text-3xl text-xl relative font-poppins text-[#e205ff]">
+          Company Values:
         </h3>
-        <div className="mt-5 flex flex-col gap-3 text-slate-500">
+        <p className="mt-5 flex flex-col gap-3 text-slate-300">
+          At TechWeb Innovations, we value innovation, reliability, and client
+          satisfaction. Our mission is to empower businesses with robust and
+          visually appealing online solutions that drive success. We are
+          committed to staying ahead of technological advancements and ensuring
+          our clients thrive in the ever-evolving digital landscape.
+        </p>
+      </div>
+
+      <div className="py-16">
+        <h3 className="font-semibold sm:text-3xl text-xl relative font-poppins text-[#e205ff]">
+          Services Offered
+        </h3>
+        <div className="mt-5 flex flex-col gap-3 text-slate-300">
           <p className="">
             I've worked with all sorts of companies, leveling up my skills and
             teaming up whit smart people. Here's the rundown:
@@ -82,44 +85,44 @@ const About = () => {
 
         <div className="mt-12 flex">
           <VerticalTimeline>
-            {experiences.map((experience, index) => (
+            {services.map((service, index) => (
               <VerticalTimelineElement
-                key={experience.company_name}
-                date={experience.date}
+                key={service.company_name}
                 icon={
                   <div className="flex justify-center items-center w-full h-full">
                     <img
-                      src={experience.icon}
-                      alt={experience.company_name}
+                      src={service.icon}
+                      alt={service.company_name}
                       className="w-[60%] h-[60%] object-contain"
                     />
                   </div>
                 }
-                iconStyle={{ background: experience.iconBg }}
+                iconStyle={{ background: service.iconBg }}
                 contentStyle={{
                   borderBottom: "8px",
                   borderStyle: "solid",
-                  borderBottomColor: experience.iconBg,
+                  borderBottomColor: '#E205FF',
                   boxShadow: "none",
+                  background: 'rgb(69, 17, 98)'
                 }}
               >
                 <div>
-                  <h3 className="text-black text-xl font-poppins font-semibold">
-                    {experience.title}
+                  <h3 className="text-[#e205ff] text-xl font-poppins font-semibold">
+                    {service.title}
                   </h3>
                   <p
                     className="text-black-500 font-medium text-base"
                     style={{ margin: 0 }}
                   >
-                    {experience.company_name}
+                    {service.company_name}
                   </p>
                 </div>
 
                 <ul className="my-5 list-disc ml-5 space-y-2">
-                  {experience.points.map((point, index) => (
+                  {service.points.map((point, index) => (
                     <li
-                      className="text-black-500/50 font-normal pl-1 text-sm"
-                      key={`experience-point-${index}`}
+                      className="text-[#e205ff] text-slate-300 font-medium pl-1 text-sm"
+                      key={`service-point-${index}`}
                     >
                       {point}
                     </li>

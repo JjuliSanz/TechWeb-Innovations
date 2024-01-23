@@ -186,49 +186,93 @@ export const projects = [
   {
     iconUrl: pricewise,
     theme: "btn-back-red",
-    name: "Amazon Price Tracker",
+    name: "SocialConnect Platform",
     description:
-      "Developed a web application that tracks and notifies users of price changes for products on Amazon, helping users find the best deals.",
+      "Developed a customized social media platform integrating advanced interaction features and data analytics, enhancing brand online presence, and fostering user engagement.",
     link: "https://github.com/adrianhajdin/pricewise",
   },
   {
     iconUrl: threads,
     theme: "btn-back-green",
-    name: "Full Stack Threads Clone",
+    name: "E-Commerce Revolution",
     description:
-      'Created a full-stack replica of the popular discussion platform "Threads," enabling users to post and engage in threaded conversations.',
+      'Created an innovative online store with an attractive user interface, intuitive navigation features, and a secure payment system, elevating the shopping experience and increasing conversions.',
     link: "https://github.com/adrianhajdin/threads",
   },
   {
     iconUrl: car,
     theme: "btn-back-blue",
-    name: "Car Finding App",
+    name: "EventMaster Management System",
     description:
-      "Designed and built a mobile app for finding and comparing cars on the market, streamlining the car-buying process.",
+      "Implemented a complete event management system covering planning through execution, facilitating efficient coordination of corporate events and enhancing participant experience.",
     link: "https://github.com/adrianhajdin/project_next13_car_showcase",
   },
   {
     iconUrl: snapgram,
     theme: "btn-back-pink",
-    name: "Full Stack Instagram Clone",
+    name: "LearningLeap Education Portal",
     description:
-      "Built a complete clone of Instagram, allowing users to share photos and connect with friends in a familiar social media environment.",
+      "Developed an interactive educational portal with multimedia content and assessment tools, providing students with an enriching learning experience and supporting educators with advanced resources.",
     link: "https://github.com/adrianhajdin/social_media_app",
   },
   {
     iconUrl: estate,
     theme: "btn-back-black",
-    name: "Real-Estate Application",
+    name: "HealthHub App",
     description:
-      "Developed a web application for real estate listings, facilitating property searches and connecting buyers with sellers.",
+      "Engineered a comprehensive health application offering personalized tracking of physical activity, diet monitoring, and health reminders, promoting a healthy lifestyle among users.",
     link: "https://github.com/adrianhajdin/projects_realestate",
   },
   {
     iconUrl: summiz,
     theme: "btn-back-yellow",
-    name: "AI Summarizer Application",
+    name: "VirtualShowroom360",
     description:
-      "App that leverages AI to automatically generate concise & informative summaries from lengthy text content, or blogs.",
+      "This project involved the integration of 3D models for showcasing products in an immersive virtual environment. The utilization of 3D models not only enhanced the visual appeal but also provided a unique and engaging shopping experience, setting our client apart in the competitive e-commerce landscape.",
     link: "https://github.com/adrianhajdin/project_ai_summarizer",
   },
 ];
+
+export const services = [
+  {
+    title: "Web Development",
+    icon: starbucks,
+    iconBg: "#accbe1",
+    points: [
+      "Custom website design and development.",
+      "Responsive and mobile-friendly layouts.",
+      "Implementing responsive design and ensuring cross-browser compatibility.",
+      "E-commerce solutions for seamless online transactions.",
+    ],
+  },
+  {
+    title: "Website Maintenance",
+    icon: tesla,
+    iconBg: "#accbe1",
+    points: [
+      "Regular updates and security enhancements.",
+      "Content management and optimization.",
+      "Performance monitoring for optimal user experience.",
+    ],
+  },
+  {
+    title: "Digital Solutions",
+    icon: shopify,
+    iconBg: "#accbe1",
+    points: [
+      "Integration of advanced functionalities.",
+      "Development of web applications tailored to client needs.",
+      "Continuous improvement and adaptation to industry trends.",
+    ],
+  },
+  {
+    title: "UI/UX Design",
+    icon: meta,
+    iconBg: "#accbe1",
+    points: [
+      "Intuitive and user-friendly interface design.",
+      "Visual appeal and brand consistency.",
+      "Accessibility and usability optimization.",
+    ],
+  },
+]
