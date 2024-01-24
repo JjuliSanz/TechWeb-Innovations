@@ -1,4 +1,4 @@
-import { meta, shopify, starbucks, tesla } from "../assets/images";
+import { code, design, growth, maintenance, meta, shopify, starbucks, tesla } from "../assets/images";
 import {
   car,
   contact,
@@ -109,61 +109,6 @@ export const skills = [
   },
 ];
 
-export const experiences = [
-  {
-    title: "React.js Developer",
-    company_name: "Starbucks",
-    icon: starbucks,
-    iconBg: "#accbe1",
-    date: "March 2020 - April 2021",
-    points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
-    ],
-  },
-  {
-    title: "React Native Developer",
-    company_name: "Tesla",
-    icon: tesla,
-    iconBg: "#fbc3bc",
-    date: "Jan 2021 - Feb 2022",
-    points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
-    ],
-  },
-  {
-    title: "Web Developer",
-    company_name: "Shopify",
-    icon: shopify,
-    iconBg: "#b7e4c7",
-    date: "Jan 2022 - Jan 2023",
-    points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
-    ],
-  },
-  {
-    title: "Full stack Developer",
-    company_name: "Meta",
-    icon: meta,
-    iconBg: "#a2d2ff",
-    date: "Jan 2023 - Present",
-    points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
-    ],
-  },
-];
-
 export const socialLinks = [
   {
     name: "Contact",
@@ -236,8 +181,8 @@ export const projects = [
 export const services = [
   {
     title: "Web Development",
-    icon: starbucks,
-    iconBg: "#accbe1",
+    icon: code,
+    iconBg: "#E205FF",
     points: [
       "Custom website design and development.",
       "Responsive and mobile-friendly layouts.",
@@ -247,8 +192,8 @@ export const services = [
   },
   {
     title: "Website Maintenance",
-    icon: tesla,
-    iconBg: "#accbe1",
+    icon: maintenance,
+    iconBg: "#E205FF",
     points: [
       "Regular updates and security enhancements.",
       "Content management and optimization.",
@@ -257,8 +202,8 @@ export const services = [
   },
   {
     title: "Digital Solutions",
-    icon: shopify,
-    iconBg: "#accbe1",
+    icon: growth,
+    iconBg: "#E205FF",
     points: [
       "Integration of advanced functionalities.",
       "Development of web applications tailored to client needs.",
@@ -267,8 +212,8 @@ export const services = [
   },
   {
     title: "UI/UX Design",
-    icon: meta,
-    iconBg: "#accbe1",
+    icon: design,
+    iconBg: "#E205FF",
     points: [
       "Intuitive and user-friendly interface design.",
       "Visual appeal and brand consistency.",

@@ -111,7 +111,13 @@ body:has(.card[data-color="green"]:hover) {
   transform-origin: bottom right;
   transform: rotateZ(15deg);
   will-change: transform;
-  box-shadow: 16px 0 40px #e4e4e4;
+  box-shadow: 16px 0 40px #e205ff;
+}
+
+.text-shadow {
+  /* text-shadow: 4px 3px 1px #E205FF; */
+  color: transparent;
+  -webkit-text-stroke: 2px #E205FF;
 }
 
 .block-container .btn-back-red {
@@ -178,6 +184,6 @@ body:has(.card[data-color="green"]:hover) {
 .neo-brutalism-white {
   background: #451162;
   border: 2px solid #E205FF;
-  box-shadow: 0.6vmin 0.6vmin #451162, 1vmin 1vmin #E205FF, 1vmin 1vmin #E205FF,
-    0.65vmin 1vmin #E205FF, 1vmin 0.65vmin #E205FF;
+  box-shadow: 0.6vmin 0.6vmin #451162, 1vmin 1vmin #ca78f7, 1vmin 1vmin #ca78f7,
+    0.65vmin 1vmin #ca78f7, 1vmin 0.65vmin #ca78f7;
 }

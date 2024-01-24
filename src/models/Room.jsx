@@ -60,72 +60,68 @@ export function Room({ isRotating, setIsRotating, setCurrentStage, ...props }) {
 
       // Update the rotation speed
       rotationSpeed.current = delta * 0.01 * Math.PI;
-    }
-  };
 
-  const handleKeyDown = (e) => {
-    if (e.key === "ArrowLeft") {
-      if (!isRotating) setIsRotating(true);
-      group.current.rotation.y += 0.01 * Math.PI;
-      rotationSpeed.current = 0.0125;
-    } else if (e.key === "ArrowRight") {
-      if (!isRotating) setIsRotating(true);
-      group.current.rotation.y -= 0.01 * Math.PI;
-      rotationSpeed.current = -0.0125;
-    }
-  };
-  const handleKeyUp = (e) => {
-    if (e.key === "ArrowLeft" || e.key === "ArrowRight") setIsRotating(true);
-  };
-
-  useFrame(() => {
-    if (!isRotating) {
-      rotationSpeed.current *= dampingFactor;
-
-      if (Math.abs(rotationSpeed.current) < 0.001) {
-        rotationSpeed.current = 0;
-      }
-      group.current.rotation.y += rotationSpeed.current;
-    } else {
-      const rotation = group.current.rotation.y;
-
-      const normalizedRotation =
-        ((rotation % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
+      // Limit the rotation to -5.4 and 5.4
+      group.current.rotation.y = Math.max(
+        Math.min(group.current.rotation.y, 5.4),
+        -5.4
+      );
 
       // Set the current stage based on the island's orientation
+      const rotation = group.current.rotation.y;
       switch (true) {
-        case normalizedRotation >= 5.45 && normalizedRotation <= 5.85:
-          setCurrentStage(4);
+        case rotation <= 0.1 && rotation > -0.2:
+          setCurrentStage(1);
           break;
-        case normalizedRotation >= 0.85 && normalizedRotation <= 1.3:
-          setCurrentStage(3);
-          break;
-        case normalizedRotation >= 2.4 && normalizedRotation <= 2.6:
+        case (rotation <= -1.3 && rotation > -1.7) ||
+          (rotation >= 4.4 && rotation < 4.9):
           setCurrentStage(2);
           break;
-        case normalizedRotation >= 4.25 && normalizedRotation <= 4.75:
-          setCurrentStage(1);
+        case (rotation <= -2.9 && rotation > -3.3) ||
+          (rotation >= 2.8 && rotation < 3.3):
+          setCurrentStage(3);
+          break;
+        case (rotation <= -4.5 && rotation > -4.9) ||
+          (rotation >= 1.2 && rotation < 1.8):
+          setCurrentStage(4);
           break;
         default:
           setCurrentStage(null);
+          console.log("rotation", rotation);
       }
     }
-  });
+  };
+
+  // Handle Keyboard action
+  // const handleKeyDown = (e) => {
+  //   if (e.key === "ArrowLeft") {
+  //     if (!isRotating) setIsRotating(true);
+  //     group.current.rotation.y += 0.01 * Math.PI;
+  //     rotationSpeed.current = 0.0125;
+  //   } else if (e.key === "ArrowRight") {
+  //     if (!isRotating) setIsRotating(true);
+  //     group.current.rotation.y -= 0.01 * Math.PI;
+  //     rotationSpeed.current = -0.0125;
+  //   }
+  // };
+  // const handleKeyUp = (e) => {
+  //   if (e.key === "ArrowLeft" || e.key === "ArrowRight") setIsRotating(true);
+  // };
 
   useEffect(() => {
     const canvas = gl.domElement;
     canvas.addEventListener("pointerdown", handlePointerDown);
     canvas.addEventListener("pointerup", handlePointerUp);
     canvas.addEventListener("pointermove", handlePointerMove);
-    document.addEventListener("keyup", handleKeyUp);
-    document.addEventListener("keydown", handleKeyDown);
+    // document.addEventListener("keyup", handleKeyUp);
+    // document.addEventListener("keydown", handleKeyDown);
 
     return () => {
       canvas.removeEventListener("pointerdown", handlePointerDown);
       canvas.removeEventListener("pointerup", handlePointerUp);
       canvas.removeEventListener("pointermove", handlePointerMove);
-      document.removeEventListener("keyup", handleKeyUp);
-      document.removeEventListener("keydow", handleKeyDown);
+      // document.removeEventListener("keyup", handleKeyUp);
+      // document.removeEventListener("keydow", handleKeyDown);
     };
   }, [gl, handlePointerDown, handlePointerUp, handlePointerMove]);
 

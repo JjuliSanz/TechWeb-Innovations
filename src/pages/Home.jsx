@@ -2,32 +2,12 @@ import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import React, { Suspense, useEffect, useRef, useState } from "react";
 import { Bloom, EffectComposer } from "@react-three/postprocessing";
 
-import { EarthHologram, EarthRoom, Room } from "../models";
+import { Room } from "../models";
 import { HomeInfo, Loader } from "../components";
 import sakura from "../assets/sakura.mp3";
 import { soundoff, soundon } from "../assets/icons";
 import { useSpring } from "react-spring";
 import { CameraControls, OrbitControls } from "@react-three/drei";
-
-const CanvasContent = ({ isRotating, setIsRotating, setCurrentStage }) => {
-  // Define el estado de la animación usando useSpring
-  const { position } = useSpring({
-    from: { position: [0, 0, 0] },
-    to: { position: [0, 1.3, 0] },
-    config: { duration: 2000 }, // Ajusta la duración de la animación
-  });
-
-  const earthHologramRef = useRef();
-
-  // Actualiza la posición de la cámara basándote en el estado de la animación
-  // useFrame(() => {
-  //   if (earthHologramRef.current) {
-  //     earthHologramRef.current.position.copy(position);
-  //   }
-  // });
-
-  return <></>;
-};
 
 const Home = () => {
   const [isRotating, setIsRotating] = useState(false);
@@ -45,16 +25,11 @@ const Home = () => {
           isRotating ? "cursor-grabbing" : "cursor-grab"
         }`}
         // camera={{ near: 0.1, far: 1000, position: [0, 0, 0] }}
-        camera={{ near: 0.1, far: 1000, position: [0, -1, 7] }}
+        // camera={{ near: 0.1, far: 1000, position: [0, -1, 7] }}
         // camera={{ near: 0.1, far: 1000, position: [0, -1, 4] }}
-        // camera={{ near: 0.1, far: 1000, position: [0, 1, 5] }}
+        camera={{ near: 0.1, far: 1000, position: [0, 0.5, 5] }}
       >
         <Suspense fallback={<Loader />}>
-          {/* <CanvasContent
-            isRotating={isRotating}
-            setIsRotating={setIsRotating}
-            setCurrentStage={setCurrentStage}
-          /> */}
           {/* <Sky isRotating={isRotating} /> */}
           <directionalLight
             intensity={0.5}
@@ -73,13 +48,7 @@ const Home = () => {
             color="#760585"
             position={[0, 5, 0]}
           /> */}
-          {/* <EarthHologram position={[0, 1.3, 0]} />
-      <EarthRoom
-        position={[0, 0, 0]}
-        isRotating={isRotating}
-        setIsRotating={setIsRotating}
-        setCurrentStage={setCurrentStage}
-      /> */}
+          
       {/* <OrbitControls/> */}
       {/* <CameraControls onStart={[0, 0, 0]} /> */}
           <Room

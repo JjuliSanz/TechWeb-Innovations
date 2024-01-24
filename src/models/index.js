@@ -6,7 +6,4 @@ export { Sky } from "./Sky";
 export { ContactBot } from "./ContactBot";
 export { Coins } from "./Coins";
 export { Ground } from "./Ground";
-export { Earth } from "./Earth";
-export { EarthRoom } from "./EarthRoom";
-export { EarthHologram } from "./EarthHologram";
 export { Room } from "./Room";

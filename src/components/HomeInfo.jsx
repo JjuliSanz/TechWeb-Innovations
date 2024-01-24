@@ -36,7 +36,7 @@ const HomeInfo = ({ currentStage }) => {
           to="/about"
           className="neo-brutalism-white py-3 px-6 mx-auto rounded-lg text-slate-300 text-center font-semibold sm:w-1/2 w-[90%] absolute -bottom-5 right-0 left-0 flex justify-center items-center gap-3"
         >
-          Learn More
+          Learn More (stage 2)
           <img src={arrow} className="w-4 h-4 object-contain" />
         </Link>
       </div>
@@ -53,7 +53,7 @@ const HomeInfo = ({ currentStage }) => {
           to="/projects"
           className="neo-brutalism-white py-3 px-6 mx-auto rounded-lg text-slate-300 text-center font-medium sm:w-1/2 w-[90%] absolute -bottom-5 right-0 left-0 flex justify-center items-center gap-3"
         >
-          Visit my portfolio
+          Visit my portfolio (stage 3)
           <img src={arrow} className="w-4 h-4 object-contain" />
         </Link>
       </div>
@@ -70,7 +70,7 @@ const HomeInfo = ({ currentStage }) => {
           to="/contact"
           className="neo-brutalism-white py-3 px-6 mx-auto rounded-lg text-slate-300 text-center font-semibold sm:w-1/2 w-[90%] absolute -bottom-5 right-0 left-0 flex justify-center items-center gap-3"
         >
-          Let's talk
+          Let's talk (stage 4)
           <img src={arrow} className="w-4 h-4 object-contain" />
         </Link>
       </div>
