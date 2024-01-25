@@ -10,7 +10,6 @@ import React, { useEffect, useRef } from "react";
 import { useGLTF, useAnimations } from "@react-three/drei";
 
 import scene from "../assets/3d/coins.glb";
-import { Ground } from "./Ground";
 
 export function Coins(props) {
   const group = useRef();
@@ -165,17 +164,7 @@ export function Coins(props) {
                     geometry={nodes.Arrow_Arrow_0.geometry}
                     material={materials.Arrow}
                   />
-                </group>
-                {/* <group name="Ground" position={[0, 0, -50]}>
-                  <mesh
-                    name="Ground_Ground_0"
-                    castShadow
-                    receiveShadow
-                    geometry={nodes.Ground_Ground_0.geometry}
-                    material={materials.Ground}
-                  />
-                  <Ground scale={300} />
-                </group> */}
+                </group>         
               </group>
             </group>
           </group>

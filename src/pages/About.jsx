@@ -11,7 +11,7 @@ const About = () => {
   return (
     <>
       <section className="max-w-5xl mx-auto sm:p-16 pb-12 !pt-[126px] px-8 min-h-[calc(100vh-80px)]">
-        <h1 className="sm:text-5xl text-3xl font-semibold sm:leading-snug font-poppins text-[#e205ff]">
+        <h1 className="sm:text-5xl text-3xl font-semibold sm:leading-snug font-poppins text-rose">
           Hello We're <span className="font-bold text-shadow">TechWeb Innovations</span>
         </h1>
 
@@ -26,8 +26,8 @@ const About = () => {
         </div>
 
         {/* Skills */}
-        <div className="py-10 flex flex-col">
-          <h3 className="font-semibold sm:text-3xl text-xl relative font-poppins text-[#e205ff]">
+        <div className="py-16 flex flex-col">
+          <h3 className="font-semibold sm:text-3xl text-xl relative font-poppins text-rose">
             Our Skills
           </h3>
 
@@ -47,8 +47,8 @@ const About = () => {
           </div>
         </div>
 
-        <div className="py-16">
-          <h3 className="font-semibold sm:text-3xl text-xl relative font-poppins text-[#e205ff]">
+        <div className="pt-16">
+          <h3 className="font-semibold sm:text-3xl text-xl relative font-poppins text-rose">
             Company Values:
           </h3>
           <p className="mt-5 flex flex-col gap-3 text-slate-300">
@@ -60,8 +60,8 @@ const About = () => {
           </p>
         </div>
 
-        <div className="py-16">
-          <h3 className="font-semibold sm:text-3xl text-xl relative font-poppins text-[#e205ff]">
+        <div className="pt-16">
+          <h3 className="font-semibold sm:text-3xl text-xl relative font-poppins text-rose">
             Services Offered
           </h3>
           <div className="mt-5 flex flex-col gap-3 text-slate-300">
@@ -97,7 +97,7 @@ const About = () => {
                 contentArrowStyle={{ borderRight: "7px solid #E205FF" }}
               >
                 <div>
-                  <h3 className="text-[#e205ff] text-xl font-poppins font-semibold">
+                  <h3 className="text-rose text-xl font-poppins font-semibold">
                     {service.title}
                   </h3>
                   <p

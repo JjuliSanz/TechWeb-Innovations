@@ -67,7 +67,7 @@ const Contact = () => {
 
   return (
     <>
-      <section className="relative flex lg:flex-row flex-col max-w-5xl mx-auto sm:p-16 pb-12 !pt-[126px] px-8 min-h-[calc(100vh-80px)] text-[#e205ff]">
+      <section className="relative flex lg:flex-row flex-col max-w-5xl mx-auto sm:p-16 pb-12 !pt-[126px] px-8 min-h-[calc(100vh-80px)] text-rose">
         {alert.show && <Alert {...alert} />}
 
         <div className="flex-1 min-w-[50%] flex flex-col">
@@ -80,13 +80,13 @@ const Contact = () => {
             className="w-full flex flex-col gap-7 mt-14 "
             onSubmit={handleSubmit}
           >
-            <label htmlFor="" className="font-semibold text-[#e205ff]">
+            <label htmlFor="" className="font-semibold text-rose">
               Name
               <input
                 type="text"
                 name="name"
-                className="bg-[#14092e] border border-[#e205ff] text-slate-300 text-sm rounded-lg focus:ring-[#e205ff] focus:border-[#e205ff] block w-full p-2.5 mt-2.5 font-normal shadow-card"
-                placeholder="Julian"
+                className="bg-[#14092e] border border-rose text-slate-300 text-sm rounded-lg focus:ring-rose focus:border-rose block w-full p-2.5 mt-2.5 font-normal shadow-card"
+                placeholder="Your Name"
                 required
                 value={form.name}
                 onChange={handleChange}
@@ -94,13 +94,13 @@ const Contact = () => {
                 onBlur={handleBlur}
               />
             </label>
-            <label htmlFor="" className="text-[#e205ff] font-semibold">
+            <label htmlFor="" className="text-rose font-semibold">
               Email
               <input
                 type="email"
                 name="email"
-                className="bg-[#14092e] border border-[#e205ff] text-slate-300 text-sm rounded-lg focus:ring-[#e205ff] focus:border-[#e205ff] block w-full p-2.5 mt-2.5 font-normal shadow-card"
-                placeholder="julian@gmail.com"
+                className="bg-[#14092e] border border-rose text-slate-300 text-sm rounded-lg focus:ring-rose focus:border-rose block w-full p-2.5 mt-2.5 font-normal shadow-card"
+                placeholder="yourmail@gmail.com"
                 required
                 value={form.email}
                 onChange={handleChange}
@@ -108,13 +108,13 @@ const Contact = () => {
                 onBlur={handleBlur}
               />
             </label>
-            <label htmlFor="" className="text-[#e205ff] font-semibold">
+            <label htmlFor="" className="text-rose font-semibold">
               Your Message
               <textarea
                 name="email"
                 rows={4}
-                className="block p-2.5 w-full text-sm text-slate-300 bg-[#14092e] rounded-lg border border-[#e205ff] focus:ring-[#e205ff] focus:border-[#e205ff] mt-2.5 font-normal shadow-card"
-                placeholder="Let me know how I can help you!"
+                className="block p-2.5 w-full text-sm text-slate-300 bg-[#14092e] rounded-lg border border-rose focus:ring-rose focus:border-rose mt-2.5 font-normal shadow-card"
+                placeholder="Let me know how We can help you!"
                 required
                 value={form.message}
                 onChange={handleChange}
@@ -123,7 +123,7 @@ const Contact = () => {
               />
             </label>
             <button
-              className="text-slate-100 bg-gradient-to-r from-[#e205ff] to-[#3e026b] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+              className="text-slate-100 bg-rose focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
               type="submit"
               onFocus={handleFocus}
               onBlur={handleBlur}
@@ -141,11 +141,8 @@ const Contact = () => {
               near: 0.1,
               far: 1000,
             }}
-            className=" "
           >
-            {/* <directionalLight intensity={2.5} position={[0, 0, 1]} />
-    <directionalLight intensity={0.3} position={[0, 1, 0]} />*/}
-            <ambientLight intensity={1} color="#e205ff" />
+            <ambientLight intensity={1} color="#E205FF" />
             <Suspense fallback={<Loader />}>
               <OrbitControls />
               <ContactBot

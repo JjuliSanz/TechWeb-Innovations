@@ -16,7 +16,8 @@ export default {
         },
         blue: {
           500: "#2b77e7"
-        }
+        },
+        rose: '#E205FF'
       },
       fontFamily: {
         worksans: ["Work Sans", "sans-serif"],

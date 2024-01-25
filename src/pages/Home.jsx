@@ -6,8 +6,6 @@ import { Room } from "../models";
 import { HomeInfo, Loader } from "../components";
 import sakura from "../assets/sakura.mp3";
 import { soundoff, soundon } from "../assets/icons";
-import { useSpring } from "react-spring";
-import { CameraControls, OrbitControls } from "@react-three/drei";
 
 const Home = () => {
   const [isRotating, setIsRotating] = useState(false);
@@ -30,7 +28,6 @@ const Home = () => {
         camera={{ near: 0.1, far: 1000, position: [0, 0.5, 5] }}
       >
         <Suspense fallback={<Loader />}>
-          {/* <Sky isRotating={isRotating} /> */}
           <directionalLight
             intensity={0.5}
             color="#760585"
@@ -38,19 +35,9 @@ const Home = () => {
           />
           <directionalLight
             intensity={0.5}
-            // color="#e205ff"
             color="#760585"
             position={[0, 3, 5]}
-          />
-          {/* <directionalLight
-            intensity={1}
-            // color="#e205ff"
-            color="#760585"
-            position={[0, 5, 0]}
-          /> */}
-          
-      {/* <OrbitControls/> */}
-      {/* <CameraControls onStart={[0, 0, 0]} /> */}
+          />         
           <Room
             position={[0, 0, 0]}
             isRotating={isRotating}
@@ -66,12 +53,6 @@ const Home = () => {
               mipmapBlur={true}
             />
           </EffectComposer>
-          {/* <Plane
-        scale={planeScale}
-        position={planePosition}
-        isRotating={isRotating}
-        rotation={[0, 20, 0]}
-      /> */}
         </Suspense>
       </Canvas>
 

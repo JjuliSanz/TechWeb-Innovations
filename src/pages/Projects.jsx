@@ -1,16 +1,17 @@
 import { Link } from "react-router-dom";
 import { projects } from "../constants";
 import { arrow } from "../assets/icons";
-import { CTA, Footer } from "../components";
+import { CTA, Footer, Loader } from "../components";
 import { Canvas } from "@react-three/fiber";
 import { Coins } from "../models";
 import { Bloom, EffectComposer } from "@react-three/postprocessing";
+import { Suspense } from "react";
 
 const Projects = () => {
   return (
     <>
       <section className="max-w-5xl mx-auto sm:p-16 pb-12 !pt-[126px] px-8 min-h-[calc(100vh-80px)] ">
-        <h1 className="sm:text-5xl text-3xl font-semibold sm:leading-snug font-poppins text-[#e205ff]">
+        <h1 className="sm:text-5xl text-3xl font-semibold sm:leading-snug font-poppins text-rose">
           Our Team:
         </h1>
 
@@ -24,8 +25,9 @@ const Projects = () => {
           </p>
         </div>
 
+      {/* Company Values */}
         <div className="py-16">
-          <h3 className="font-semibold sm:text-2xl text-xl relative font-poppins text-[#e205ff]">
+          <h3 className="font-semibold sm:text-3xl text-2xl relative font-poppins text-rose">
             Company Value Proposition:
           </h3>
           <p className="mt-5 flex flex-col gap-3 text-slate-300">
@@ -44,34 +46,41 @@ const Projects = () => {
           </p>
         </div>
 
+        {/* Coins */}
         <div className="relative h-[500px] w-full ">
           <Canvas
             camera={{
-              position: [0, 0, 4],
+              position: [0, 0.5, 3],
             }}
           >
-            {/* <ambientLight intensity={0.5} /> */}
-            {/* <directionalLight position={[-1, 5, 5]} intensity={0.3} /> */}
-            <Coins position={[0, -2.5, 0]} scale={2} />
-            {/* <Ground position={[0, -3, -1]} scale={10} /> */}
-            <EffectComposer>
-              <Bloom
-                intensity={0.3}
-                luminanceThreshold={0.7}
-                luminanceSmoothing={0.9}
-                height={300}
-              />
-            </EffectComposer>
+            <Suspense fallback={<Loader />}>
+              <Coins position={[0, -2.5, 0]} scale={2} />
+              <EffectComposer>
+                <Bloom
+                  intensity={0.3}
+                  luminanceThreshold={0.7}
+                  luminanceSmoothing={0.9}
+                  height={300}
+                />
+              </EffectComposer>
+            </Suspense>
           </Canvas>
         </div>
 
-        <div className="text-[#e205ff]">
-          These are just a few examples of successful projects executed by
-          TechWeb Innovations. Each project reflects our commitment to
-          excellence in web development and creating impactful solutions for our
-          clients.
+        {/* Projects */}
+        <div className="pt-16">
+          <h3 className="font-semibold sm:text-3xl text-2xl relative font-poppins text-rose">
+            Some of our projects:
+          </h3>
+          <div className="mt-5 flex flex-col gap-3 text-slate-300">
+            These are just a few examples of successful projects executed by
+            TechWeb Innovations. Each project reflects our commitment to
+            excellence in web development and creating impactful solutions for
+            our clients.
+          </div>
         </div>
 
+        {/* Projects map*/}
         <div className="flex flex-wrap my-20 gap-16">
           {projects.map((project) => (
             <div className="lg:w-[400px] w-full" key={project.name}>
@@ -86,7 +95,7 @@ const Projects = () => {
                 </div>
               </div>
               <div className="mt-5 flex flex-col">
-                <h3 className="text-2xl font-poppins font-semibold text-[#e205ff]">
+                <h3 className="text-xl font-poppins font-semibold text-rose">
                   {project.name}
                 </h3>
                 <p className="mt-2 text-slate-300">{project.description}</p>
@@ -95,7 +104,7 @@ const Projects = () => {
                     to={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-semibold text-[#e205ff]"
+                    className="font-semibold text-rose"
                   >
                     Live Link
                   </Link>
@@ -110,7 +119,9 @@ const Projects = () => {
           ))}
         </div>
 
-        <hr className="border-[#e205ff]" />
+        <hr className="border-rose" />
+
+        {/* Contact */}
         <CTA />
       </section>
       <Footer />
